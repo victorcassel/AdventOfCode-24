@@ -1,17 +1,17 @@
-import numpy as np 
-import string
+import re
 
 # TODO
 with open('Dag3\inp.txt', 'r') as file: 
     lines = file.readlines()
 
 print (lines[:10])
-# safeCount = 0
-# safeCount2 = 0
+sum = 0
+for i in range(len(lines)):    
+    m = re.findall('mul\((\d+),(\d+)\)', lines[i])
+    for j in range(len(m)):
+        sum += int(m[j][0]) * int(m[j][1])
 
-# for i in range(len(lines)):
-#     lst = [int(ele) for ele in lines[i].split()]
-
+print("sum", sum)
 #     for skip in [-1] + list(range(len(lst))):
 #         lst2 = lst.copy()
 #         if skip > -1:            
